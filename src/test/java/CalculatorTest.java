@@ -13,17 +13,19 @@ class CalculatorTest {
     @Test
     void dif() {
         assertEquals(0, calculator.dif(1,1));
-
     }
 
     @Test
     void div() {
         assertEquals(1, calculator.div(1,1));
+        assertThrows(ArithmeticException.class, () -> calculator.div(4,0));
     }
 
     @Test
     void times() {
         assertEquals(1, calculator.times(1,1));
+        assertEquals(0, calculator.times(1,0));
+        assertEquals(-1, calculator.times(1,-1));
     }
 
     @Test

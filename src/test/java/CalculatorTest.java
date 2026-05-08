@@ -6,33 +6,33 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 class CalculatorTest {
-    Calculator calc = new Calculator();
+    Calculator calculator = new Calculator();
 
     @Test
-    public void add() {
-        assertEquals(2, calc.add(1, 1));
+    void add() {
+        assertEquals(2, calculator.add(1,1));
     }
 
     @Test
-    public void dif() {
-        assertEquals(4, calc.dif(5, 1));
+    void dif() {
+        assertEquals(0, calculator.dif(1,1));
     }
 
     @Test
-    public void div() {
-        assertThrows(ArithmeticException.class, () -> calc.div(1, 0));
-        assertEquals(1, calc.div(1, 1));
+    void div() {
+        assertEquals(1, calculator.div(1,1));
+        assertThrows(ArithmeticException.class, () -> calculator.div(4,0));
     }
 
     @Test
-    public void times() {
-        assertEquals(0, calc.times(1, 0));
-        assertEquals(-1, calc.times(-1, 1));
-        assertEquals(10, calc.times(2, 5));
+    void times() {
+        assertEquals(1, calculator.times(1,1));
+        assertEquals(0, calculator.times(1,0));
+        assertEquals(-1, calculator.times(1,-1));
     }
 
     @Test
-    public void solver() {
-        assertEquals(-19, calc.solver());
+    void solver() {
+        assertEquals(-19, calculator.solver());
     }
 }

@@ -7,10 +7,12 @@ on:
   pull_request:
     branches: ["main"]
   schedule:
-    - cron: '0 12 * * 3'
+    - cron: '30 12 * * 3'
     - cron: '0 22 * * 5'
-permissions:
-  contents: read
+#permissions:
+#  contents: read, write
+
+  
 
 
 jobs:
@@ -43,10 +45,3 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 
-    # The USERNAME and TOKEN need to correspond to the credentials environment variables used in
-    # the publishing section of your build.gradle
-    - name: Publish to GitHub Packages
-      run: ./gradlew publish
-      env:
-        USERNAME: ${{ github.actor }}
-        TOKEN: ${{ secrets.GITHUB_TOKEN }}

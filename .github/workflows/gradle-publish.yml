@@ -23,11 +23,9 @@ jobs:
       matrix:
         version: [ 11, 13, 17 ]
         os: [ ubuntu-latest,windows-latest,macos-latest ]
-#        exclude:
-#          - os: macos-latest
-#            version: 13
-#          - os: ubuntu-latest
-#            version: 13
+      exclude: 
+        - os: ubuntu-latest
+          version: 17
 
     runs-on:  ${{ matrix.os }}
     steps:
@@ -41,15 +39,8 @@ jobs:
         settings-path: ${{ github.workspace }}
 
 
-#    - name: Setup Gradle
-#      uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
     - name: Make gradlew executable
       run: chmod +x ./gradlew
-
-#    - name: Build with Gradle
-#      uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
-#      with:
-#       arguments: build
 
     - name: Build with Gradle
       run: ./gradlew build

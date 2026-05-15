@@ -23,9 +23,9 @@ jobs:
       matrix:
         version: [ 11, 13, 17 ]
         os: [ ubuntu-latest,windows-latest,macos-latest ]
-      exclude: 
-        - os: ubuntu-latest
-          version: 17
+        exclude:
+          - os: ubuntu-latest
+            version: 17
 
     runs-on:  ${{ matrix.os }}
     steps:

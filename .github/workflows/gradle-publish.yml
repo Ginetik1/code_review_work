@@ -21,11 +21,8 @@ jobs:
     strategy:
       max-parallel: 3
       matrix:
-        version: [ 11, 13, 17 ]
+        version: [ 17, 13, 11 ]
         os: [ ubuntu-latest,windows-latest,macos-latest ]
-        exclude:
-          - os: ubuntu-latest
-            version: 17
 
     runs-on:  ${{ matrix.os }}
     steps:

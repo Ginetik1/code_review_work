@@ -9,8 +9,8 @@ on:
   schedule:
     - cron: '30 12 * * 3'
     - cron: '0 22 * * 5'
-#permissions:
-#  contents: read, write
+permissions:
+  contents: read
 
 
 

@@ -23,11 +23,11 @@ jobs:
       matrix:
         version: [ 11, 13, 17 ]
         os: [ ubuntu-latest,windows-latest,macos-latest ]
-        exclude:
-          - os: macos-latest
-            version: 13
-          - os: ubuntu-latest
-            version: 13
+#        exclude:
+#          - os: macos-latest
+#            version: 13
+#          - os: ubuntu-latest
+#            version: 13
 
     runs-on:  ${{ matrix.os }}
     steps:
@@ -36,7 +36,7 @@ jobs:
       uses: actions/setup-java@v4
       with:
         java-version: ${{ matrix.version }}
-        distribution: 'temurin'
+        distribution: 'zulu'
         server-id: github
         settings-path: ${{ github.workspace }}
 
